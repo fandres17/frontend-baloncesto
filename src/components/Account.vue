@@ -29,7 +29,7 @@ await this.verifyToken();
         let token = localStorage.getItem("token_access");
         let userId = jwt_decode(token).user_id.toString();
 
-        axios.get(`https://backend-app-misiontic.herokuapp.com/user/${userId}/`, { headers: { 'Authorization': `Bearer ${token}` } })
+        axios.get(`https://backend-app-baloncesto2.herokuapp.com/user/${userId}/`, { headers: { 'Authorization': `Bearer ${token}` } })
 
             .then((result) => {
                 this.name = result.data.name;
@@ -43,7 +43,7 @@ await this.verifyToken();
     },
     verifyToken: function () {
 
-        return axios.post("https://backend-app-misiontic.herokuapp.com/refresh/", {refresh: localStorage.getItem("token_refresh")}, {headers: {}}
+        return axios.post("https://backend-app-baloncesto2.herokuapp.com/refresh/", {refresh: localStorage.getItem("token_refresh")}, {headers: {}}
 
         )
             .then((result) => {

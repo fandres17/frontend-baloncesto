@@ -8,6 +8,8 @@
         <button v-if="is_auth" v-on:click="logOut"> Cerrar Sesión </button>
         <button v-if="!is_auth" v-on:click="loadLogIn"> Iniciar Sesión </button>
         <button v-if="!is_auth" v-on:click="loadSignUp"> Registrarse </button>
+        <button v-if="!is_auth" v-on:click="loadPreinscription"> Preinscribir equipo </button>
+        <button v-if="!is_auth" v-on:click="loadResults"> Ver Resultados </button>
       </nav>
     </div>
 
@@ -47,6 +49,13 @@ export default {
     loadSignUp: function () {
       this.$router.push({ name: "signUp" })
     },
+    loadResults: function () {
+      this.$router.push({ name: "results" })
+    },
+    
+    loadPreinscription: function () {
+      this.$router.push({ name: "preinscription" })
+    },
     completedLogIn: function (data) {
       localStorage.setItem("isAuth", true);
       localStorage.setItem("username", data.username);
@@ -59,6 +68,7 @@ export default {
       alert("Registro Exitoso");
       this.completedLogIn(data);
     },
+    
      logOut: function () {
     console.log("logging out")
     localStorage.clear();

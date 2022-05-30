@@ -1,25 +1,24 @@
 <template>
     <div class="signUp_user">
         <div class="container_signUp_user">
-            <h2>Registrarse</h2>
+            <h2>Preinscribir Equipo al torneo</h2>
             <form v-on:submit.prevent="processSignUp">
-                <input type="text" v-model="user.username" placeholder="Username">
-                <br>
-                <input type="password" v-model="user.password" placeholder="Password">
-                <br>
-                <input type="text" v-model="user.first_name" placeholder="First Name">
-                <br>
-                <input type="text" v-model="user.last_name" placeholder="Last Name">
-                <br>
-                <input type="text" v-model="user.cedula" placeholder="Cedula">
-                <br>
-                <input type="email" v-model="user.email" placeholder="Email">
-                <br>
 
-                <input type="number" v-model="user.account.balance" placeholder="Initial Balance">
-
+                <input type="text" v-model="preinscripcion.nombreEquipo" placeholder="Nombre de equipo">
                 <br>
-                <button type="submit">Registrarse</button>
+                <input type="email" v-model="preinscripcion.correo_electronico" placeholder="Correo electronico">
+                <br>
+                <input type="text" v-model="preinscripcion.ciudad" placeholder="Ciudad">
+                <br>
+                <input type="text" v-model="preinscripcion.nombre_encargado" placeholder="Nombre encargado">
+                <br>
+                <input type="text" v-model="preinscripcion.apellido_encargado" placeholder="Apellido encargado">
+                <br>
+                <input type="text" v-model="preinscripcion.telefono_encargado" placeholder="Teléfono">
+                <br>
+                <input type="date" v-model="preinscripcion.fecha_preinscripcion" placeholder="Fecha de preinscripcion">
+                <br>
+                <button type="submit">Registrar Equipo</button>
             </form>
         </div>
     </div>
@@ -28,40 +27,32 @@
 <script>
 import axios from 'axios';
 export default {
-    name: "SignUp",
+    name: "Preinscription",
     data: function () {
         return {
-            user: {
-                username: "",
-                password: "",
-                first_name: "",
-                last_name: "",
-                cedula:"",
-                email: "",
-                account: {
-                    lastChangeDate: (new Date()).toJSON().toString(),
-                    balance: 0,
-                    isActive: true
-                }
+            preinscripcion: {
+                nombreEquipo: "",
+                correo_electronico: "",
+                ciudad: "",
+                nombre_encargado:"",
+                apellido_encargado: "",
+                telefono_encargado:"",
+                fecha_preinscripcion: "",
+               
             }
         }
     },
     methods: {
         processSignUp: function () {
             axios.post(
-                "https://backend-app-baloncesto2.herokuapp.com/user/",
-                this.user,
+                "https://backend-app-baloncesto2.herokuapp.com/preinscription/",
+                this.preinscripcion,
                 { headers: {} }
             )
                 .then((result) => {
-                    let dataSignUp = {
-                        username: this.user.username,
-                        token_access: result.data.access,
-                        token_refresh: result.data.refresh,
-                    }
-
-                    this.$emit('completedSignUp', dataSignUp)
-
+                    let dataRegister=true
+                    alert("Preinscripción de equipo exitosa");
+                    this.$router.push({ name: "results" });
                 })
                 .catch((error) => {
                     console.log(error)

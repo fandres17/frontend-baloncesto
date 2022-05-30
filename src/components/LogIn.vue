@@ -28,7 +28,7 @@ export default {
     methods: {
         processLogInUser: function () {
             axios.post(
-                "https://backend-app-misiontic.herokuapp.com/login/",
+                "https://backend-app-baloncesto2.herokuapp.com/login/",
                 this.user,
                 { headers: {} }
             )
