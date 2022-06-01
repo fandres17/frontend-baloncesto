@@ -80,8 +80,8 @@ export default {
 
     border-radius: 10px;
 
-    width: 25%;
-    height: 60%;
+    width: 45%;
+    height: auto;
     display: flex;
 
     flex-direction: column;
@@ -99,8 +99,11 @@ export default {
 
 .signUp_user form {
 
-    width: 70%;
-
+    width: 60%;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .signUp_user input {
@@ -119,11 +122,11 @@ export default {
 
 .signUp_user button {
 
-    width: 100%;
+    width: 155px;
     height: 40px;
     color: #E5E7E9;
     background: #283747;
-
+    justify-content: center;
     border: 1px solid #E5E7E9;
 
     border-radius: 5px;

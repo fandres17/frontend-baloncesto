@@ -6,10 +6,10 @@
         <button v-if="is_auth" v-on:click="loadHome"> Inicio </button>
         <button v-if="is_auth" v-on:click="loadAccount"> Cuenta </button>
         <button v-if="is_auth" v-on:click="logOut"> Cerrar Sesión </button>
-        <button v-if="!is_auth" v-on:click="loadLogIn"> Iniciar Sesión </button>
-        <button v-if="!is_auth" v-on:click="loadSignUp"> Registrarse </button>
-        <button v-if="!is_auth" v-on:click="loadPreinscription"> Preinscribir equipo </button>
-        <button v-if="!is_auth" v-on:click="loadResults"> Ver Resultados </button>
+        <button class="btn" v-if="!is_auth" v-on:click="loadLogIn"> Iniciar Sesión </button>
+        <button class="btn" v-if="!is_auth" v-on:click="loadSignUp"> Registrarse </button>
+        <button class="btn" v-if="!is_auth" v-on:click="loadPreinscription"> Preinscribir equipo </button>
+        <button class="btn" v-if="!is_auth" v-on:click="loadResults"> Ver Resultados </button>
       </nav>
     </div>
 
@@ -116,7 +116,7 @@ body {
 
 .header nav {
   height: 100%;
-  width: 20%;
+  width: 680px;
   display: flex;
   justify-content: space -around;
   align-items: center;
@@ -139,8 +139,8 @@ body {
   border: 1px solid #E5E7E9;
 }
 
-.main -component {
-  height: 75vh;
+.main-component {
+  height: 90vh;
   margin: 0%;
   padding: 0%;
   background: #FDFEFE;
@@ -162,5 +162,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.btn{
+  margin:5px;
+  width: 160px;
+  height: auto;
 }
 </style>
