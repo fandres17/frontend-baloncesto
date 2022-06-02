@@ -1,19 +1,63 @@
 <template>
-    <div class="greetings">
-        <h2>Resultados de Partidos</h2>
-        <br>
-        <h2>
-            <br>
-            <button type="submit" v-on:click="tableFromJson">Create Table from JSON data</button>
-            <p id='showData'></p>
-        </h2>
-        <h2>.....</h2>
+    <div class="content content-result">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>Resultados de Partidos</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <h2 class="subtitle">
+                                <br>
+                                <!-- <button class="btn btn-secondary bt-1" type="submit" v-on:click="tableFromJson">Create Table from JSON data</button> -->
+                                <p id='showData'></p>
+                            </h2>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text">
+                                    <th>Nombre</th>
+                                    <th>Ciudad</th>
+                                    <th>Escudo</th>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(item, index) in resultado" :key="index">
+                                        <td>{{item.BookName}}</td>
+                                        <td>{{item.Category}}</td>
+                                        <td>{{item.Price}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
     </div>
 </template>
 
 
 <script>
 export default {
+    data() {
+        return {
+            resultado:[
+                {
+                    'BookID': '1', 'BookName': 'Challenging Times',
+                    'Category': 'Business', 'Price': '125.60'
+                },
+                {
+                    'BookID': '2', 'BookName': 'Learning JavaScript',
+                    'Category': 'Programming', 'Price': '56.00'
+                },
+                {
+                    'BookID': '3', 'BookName': 'Popular Science',
+                    'Category': 'Science', 'Price': '210.40'
+                }]
+        }
+    },
     methods: {
         tableFromJson: function () {
             // the json data. (you can change the values for output.)
@@ -91,13 +135,15 @@ export default {
     color: #0f1316;
 }
 
-.information h2 {
-    font-size: 40px;
-    color: #283747;
+.content-result {
+    margin: 40px 10px ;
 }
 
-.information span {
-    color: crimson;
-    font-weight: bold;
+.bt-1 {
+    width: 250px;
+}
+.subtitle {
+    display: flex;
+    justify-content: flex-end;
 }
 </style>

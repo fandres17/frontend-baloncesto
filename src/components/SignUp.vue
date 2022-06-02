@@ -2,23 +2,13 @@
     <div class="signUp_user">
         <div class="container_signUp_user">
             <h2>Registrarse</h2>
-            <form v-on:submit.prevent="processSignUp">
+            <form v-on:submit.prevent="processSignUp" id="frm-signup">
                 <input type="text" v-model="user.username" placeholder="Username">
-                <br>
                 <input type="password" v-model="user.password" placeholder="Password">
-                <br>
                 <input type="text" v-model="user.first_name" placeholder="First Name">
-                <br>
                 <input type="text" v-model="user.last_name" placeholder="Last Name">
-                <br>
                 <input type="text" v-model="user.cedula" placeholder="Cedula">
-                <br>
                 <input type="email" v-model="user.email" placeholder="Email">
-                <br>
-
-                <input type="number" v-model="user.account.balance" placeholder="Initial Balance">
-
-                <br>
                 <button type="submit">Registrarse</button>
             </form>
         </div>
@@ -97,13 +87,13 @@ export default {
 
 .signUp_user h2 {
     color: #283747;
-
+    margin: 20px;
 }
 
-.signUp_user form {
+#frm-signup {
 
-    width: 60%;
-    height: 550px;
+    width: 70%;
+    height: 420px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -111,7 +101,7 @@ export default {
 
 .signUp_user input {
 
-    height: 40px;
+    height: 35px;
     width: 100%;
     box-sizing: border -box;
     padding: 10px 20px;

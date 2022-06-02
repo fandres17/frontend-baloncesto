@@ -1,11 +1,12 @@
 <template>
     <div class="logIn_user">
+        <h2>LA LIGA BTK</h2>
+        
         <div class="container_logIn_user">
-            <h2>LA LIGA BTK</h2>
             <form v-on:submit.prevent="processLogInUser">
-                <input type="text" v-model="user.username" placeholder="Username">
+                <input type="text"  placeholder="Username" class="form-control">
                 <br>
-                <input type="password" v-model="user.password" placeholder="Password">
+                <input type="password"  placeholder="Password">
                 <br>
                 <button type="submit">Entrar</button>
             </form>
@@ -14,50 +15,17 @@
 </template>
 
 <script>
-import axios from 'axios';
 export default {
-    name: "LogIn",
-    data: function () {
-        return {
-            user: {
-                username: "",
-                password: ""
-            }
-        }
-    },
-    methods: {
-        processLogInUser: function () {
-            axios.post(
-                "https://backend-app-baloncesto2.herokuapp.com/login/",
-                this.user,
-                { headers: {} }
-            )
-                .then((result) => {
-                    let dataLogIn = {
-                        username: this.user.username,
-                        token_access: result.data.access,
-                        token_refresh: result.data.refresh,
-                    }
-
-                    this.$emit('completedLogIn', dataLogIn)
-
-                })
-                .catch((error) => {
-                    if (error.response.status == "401")
-                        alert("ERROR 401: Credenciales Incorrectas.");
-                });
-        }
-    }
+    
 }
 </script>
-
 <style>
 .logIn_user {
-    margin: 0;
+    margin: 20px;
     padding: 0%;
     height: 100%;
     width: 100%;
-    display: flex;
+    display:flex;
     justify-content: center;
     align-items: center;
 }

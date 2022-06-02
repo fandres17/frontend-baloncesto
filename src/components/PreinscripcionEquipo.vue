@@ -1,24 +1,16 @@
 <template>
     <div class="signUp_user">
         <div class="container_signUp_user">
-            <h2>Preinscribir Equipo al torneo</h2>
+            <h2>Preinscribción Equipo</h2>
             <form v-on:submit.prevent="processSignUp">
-
                 <input type="text" v-model="preinscripcion.nombreEquipo" placeholder="Nombre de equipo">
-                <br>
                 <input type="email" v-model="preinscripcion.correo_electronico" placeholder="Correo electronico">
-                <br>
                 <input type="text" v-model="preinscripcion.ciudad" placeholder="Ciudad">
-                <br>
                 <input type="text" v-model="preinscripcion.nombre_encargado" placeholder="Nombre encargado">
-                <br>
                 <input type="text" v-model="preinscripcion.apellido_encargado" placeholder="Apellido encargado">
-                <br>
                 <input type="text" v-model="preinscripcion.telefono_encargado" placeholder="Teléfono">
-                <br>
                 <input type="date" v-model="preinscripcion.fecha_preinscripcion" placeholder="Fecha de preinscripcion">
-                <br>
-                <button type="submit">Registrar Equipo</button>
+                <button type="submit">Registrar</button>
             </form>
         </div>
     </div>
@@ -94,13 +86,14 @@ export default {
 
 .signUp_user h2 {
     color: #283747;
-
+    height: 30px;
+    margin: 20px;
 }
 
 .signUp_user form {
 
-    width: 60%;
-    height: 550px;
+    width: 70%;
+    height: 420px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,7 +101,7 @@ export default {
 
 .signUp_user input {
 
-    height: 40px;
+    height: 35px;
     width: 100%;
 
     box-sizing: border -box;

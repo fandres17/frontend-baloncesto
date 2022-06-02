@@ -8,10 +8,11 @@ import Home from './components/Home.vue'
 import Account from './components/Account.vue'
 import PreinscripcionEquipo from './components/PreinscripcionEquipo.vue'
 import Results from './components/Results.vue'
+import Team from './components/Team.vue'
 
 const routes = [{
   path: '/',
-  name: 'root',
+  name: 'App',
   component: App
 },
 {
@@ -25,7 +26,7 @@ const routes = [{
   component: SignUp
 },
 {
-  path: '/user/home',
+  path: '/home',
   name: "home",
   component: Home
 },
@@ -43,6 +44,11 @@ const routes = [{
   path: '/user/results',
   name: "results",
   component: Results
+},
+{
+  path: '/team',
+  name: "team",
+  component: Team
 }
 ];
 

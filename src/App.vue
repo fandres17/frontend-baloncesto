@@ -1,15 +1,17 @@
 <template>
   <div id="app" class="app">
     <div class="header">
-      <h1>Torneos de Baloncesto</h1>
+      <h1><a v-on:click="loadHome">LA LIGA BKT</a></h1>
       <nav>
         <button v-if="is_auth" v-on:click="loadHome"> Inicio </button>
         <button v-if="is_auth" v-on:click="loadAccount"> Cuenta </button>
         <button v-if="is_auth" v-on:click="logOut"> Cerrar Sesión </button>
         <button class="btn" v-if="!is_auth" v-on:click="loadLogIn"> Iniciar Sesión </button>
         <button class="btn" v-if="!is_auth" v-on:click="loadSignUp"> Registrarse </button>
-        <button class="btn" v-if="!is_auth" v-on:click="loadPreinscription"> Preinscribir equipo </button>
-        <button class="btn" v-if="!is_auth" v-on:click="loadResults"> Ver Resultados </button>
+        <button class="btn" v-if="!is_auth" v-on:click="loadPreinscription"> Pre-inscribción</button>
+        <button class="btn" v-if="!is_auth" v-on:click="loadResults">Resultados</button>
+        <button class="btn" v-if="!is_auth" v-on:click="loadTeam">Equipos</button>
+
       </nav>
     </div>
 
@@ -38,7 +40,7 @@ export default {
     verifyAuth: function () {
       this.is_auth = localStorage.getItem("isAuth") || false;
       if (this.is_auth == false)
-        this.$router.push({ name: "logIn" });
+        this.$router.push({ name: "home" });
       else
         this.$router.push({ name: "home" });
     },
@@ -82,7 +84,10 @@ export default {
 
   loadAccount: function () {
     this.$router.push({ name: "account" });
-  }
+  },
+  loadTeam: function () {
+  this.$router.push({ name: "team" })
+  },
   },
   created: function () {
     this.verifyAuth()
@@ -94,31 +99,36 @@ export default {
 body {
   margin: 0 0 0 0;
 }
-
+*{
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 .header {
   margin: 0%;
   padding: 0;
   width: 100%;
   height: 10vh;
-  min-height: 100px;
-  background-color: #283747;
+  min-height: 85px;
+  background-color: #bf6719;
   color: #E5E7E9;
   display: flex;
-  justify-content: space -between;
+  justify-content: space-between;
   align-items: center;
-
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .header h1 {
   width: 20%;
   text-align: center;
 }
-
+.header h1 a {
+ text-decoration: none;
+ color: #E5E7E9;
+}
 .header nav {
   height: 100%;
-  width: 680px;
+  width: 750px;
   display: flex;
-  justify-content: space -around;
+  justify-content: space-around;
   align-items: center;
   font-size: 20px;
 }
@@ -129,7 +139,7 @@ body {
   background: #283747;
   border: 1px solid #E5E7E9;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 8px 16px;
 }
 
 .header nav button:hover {
@@ -151,8 +161,8 @@ body {
   padding: 0;
   width: 100%;
   height: 10vh;
-  min-height: 100px;
-  background-color: #283747;
+  min-height: 80px;
+  background-color: #bf6719;
   color: #E5E7E9;
 }
 
@@ -164,8 +174,8 @@ body {
   align-items: center;
 }
 .btn{
-  margin:5px;
-  width: 160px;
+  margin:3px;
+  width: 140px;
   height: auto;
 }
 </style>
