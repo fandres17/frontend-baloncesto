@@ -17,15 +17,15 @@
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead class="text">
-                                    <th>Nombre</th>
-                                    <th>Ciudad</th>
-                                    <th>Escudo</th>
+                                    <th class="col-md-4 text-center">Local</th>
+                                    <th class="col-md-4 text-center">Marcador</th>
+                                    <th class="col-md-4 text-center">Visitante</th>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="(item, index) in resultado" :key="index">
-                                        <td>{{item.BookName}}</td>
-                                        <td>{{item.Category}}</td>
-                                        <td>{{item.Price}}</td>
+                                    <tr v-for="(item, index) in equipos" :key="index">
+                                        <td  class="text-center">{{item.equipo_local}}</td>
+                                        <td  class="text-center">{{item.marcador_local}}  -  {{item.marcador_visita}}</td>
+                                        <td  class="text-center">{{item.equipo_visita}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -40,7 +40,25 @@
 
 
 <script>
-export default {
+import axios from "axios";
+export default{
+    name: 'results',
+    data (){
+        return{
+            equipos:[]
+        }
+    },
+    methods: {
+        async getEquipos (){
+            const resp = await axios.get('https://backend-app-baloncesto2.herokuapp.com/results/')
+            this.equipos = resp.data
+        }
+    },
+    created(){
+        this.getEquipos()
+    }
+}
+/*export default {
     data() {
         return {
             resultado:[
@@ -116,7 +134,7 @@ export default {
             divShowData.appendChild(table);
         }
     }
-}
+}*/
 </script>
 <style>
 .information {

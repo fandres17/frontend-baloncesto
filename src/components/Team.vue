@@ -1,22 +1,62 @@
 <template>
-    <div class="logIn_user">
-        <h2>LA LIGA BTK</h2>
-        
-        <div class="container_logIn_user">
-            <form v-on:submit.prevent="processLogInUser">
-                <input type="text"  placeholder="Username" class="form-control">
+     <div class="content content-result">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>LISTADO DE EQUIPOS</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <h2 class="subtitle">
+                                <br>
+                                <!-- <button class="btn btn-secondary bt-1" type="submit" v-on:click="tableFromJson">Create Table from JSON data</button> -->
+                                <p id='showData'></p>
+                            </h2>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text">
+                                    <th class="col-md-4 text-center">Nombre</th>
+                                    <th class="col-md-4 text-center">Ciudad</th>
+                                    <th class="col-md-4 text-center">Correo</th>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(item,index) in resultado" :key="index">
+                                        <td class="text-center">{{item.nombreEquipo}}</td>
+                                        <td class="text-center">{{item.ciudad}}</td>
+                                        <td class="text-center">{{item.correo_electronico}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
                 <br>
-                <input type="password"  placeholder="Password">
-                <br>
-                <button type="submit">Entrar</button>
-            </form>
+            </div>
         </div>
     </div>
+
 </template>
 
 <script>
-export default {
-    
+import axios from "axios";
+export default{
+    name: 'results',
+    data (){
+        return{
+            resultado:[]
+        }
+    },
+    methods: {
+        async getResultado (){
+            const resp = await axios.get('https://backend-app-baloncesto2.herokuapp.com/teamsread/')
+            this.resultado = resp.data
+        }
+    },
+    created(){
+        this.getResultado()
+    }
 }
 </script>
 <style>
