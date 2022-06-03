@@ -3,9 +3,10 @@
     <div class="header">
       <h1><a v-on:click="loadHome">LA LIGA BKT</a></h1>
       <nav>
-        <button v-if="is_auth" v-on:click="loadHome"> Inicio </button>
-        <button v-if="is_auth" v-on:click="loadAccount"> Cuenta </button>
-        <button v-if="is_auth" v-on:click="logOut"> Cerrar Sesión </button>
+        <button class="btn" v-if="is_auth" v-on:click="loadHome"> Inicio </button>
+        <button class="btn" v-if="is_auth" v-on:click="loadResultIndex"> Resultados </button>
+        <button class="btn" v-if="is_auth" v-on:click="loadTeamIndex"> Equipos </button>
+        <button class="btn" v-if="is_auth" v-on:click="logOut"> Cerrar Sesión </button>
         <button class="btn" v-if="!is_auth" v-on:click="loadLogIn"> Iniciar Sesión </button>
         <button class="btn" v-if="!is_auth" v-on:click="loadSignUp"> Registrarse </button>
         <button class="btn" v-if="!is_auth" v-on:click="loadPreinscription"> Pre-inscribción</button>
@@ -82,12 +83,15 @@ export default {
     this.$router.push({ name: "home" });
   },
 
-  loadAccount: function () {
-    this.$router.push({ name: "account" });
+  loadResultIndex: function () {
+    this.$router.push({ name: "indexresult" });
   },
   loadTeam: function () {
   this.$router.push({ name: "team" })
   },
+  loadTeamIndex: function() {
+  this.$router.push ({name:"indexteam"})
+  }
   },
   created: function () {
     this.verifyAuth()

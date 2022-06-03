@@ -17,15 +17,13 @@
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead class="text">
-                                    <th class="col-md-4 text-center">Nombre</th>
-                                    <th class="col-md-4 text-center">Ciudad</th>
-                                    <th class="col-md-4 text-center">Correo</th>
+                                    <th class="col-md-6 text-center">Nombre</th>
+                                    <th class="col-md-6 text-center">Ciudad</th>
                                 </thead>
                                 <tbody>
                                     <tr v-for="(item,index) in resultado" :key="index">
                                         <td class="text-center">{{item.nombreEquipo}}</td>
                                         <td class="text-center">{{item.ciudad}}</td>
-                                        <td class="text-center">{{item.correo_electronico}}</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -9,6 +9,12 @@ import Account from './components/Account.vue'
 import PreinscripcionEquipo from './components/PreinscripcionEquipo.vue'
 import Results from './components/Results.vue'
 import Team from './components/Team.vue'
+import Index_Team from './components/teams/Index.vue'
+import Create_team from './components/teams/Create.vue'
+import Update_team from './components/teams/Update.vue'
+import Index_Result from './components/results/Index.vue'
+import Create_Result from './components/results/Create.vue'
+
 
 const routes = [{
   path: '/',
@@ -49,6 +55,31 @@ const routes = [{
   path: '/team',
   name: "team",
   component: Team
+},
+{
+  path: '/team/index',
+  name: "indexteam",
+  component:Index_Team
+},
+{
+  path: '/team/create',
+  name: "createteam",
+  component: Create_team
+},
+{
+  path: '/team/update/',
+  name: "updateteam",
+  component: Update_team
+},
+{
+  path: '/result/index/',
+  name: "indexresult",
+  component: Index_Result
+},
+{
+  path: '/result/create/',
+  name: "createresult",
+  component: Create_Result
 }
 ];
 
