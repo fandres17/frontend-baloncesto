@@ -9,7 +9,7 @@
         <button class="btn" v-if="is_auth" v-on:click="logOut"> Cerrar Sesión </button>
         <button class="btn" v-if="!is_auth" v-on:click="loadLogIn"> Iniciar Sesión </button>
         <button class="btn" v-if="!is_auth" v-on:click="loadSignUp"> Registrarse </button>
-        <button class="btn" v-if="!is_auth" v-on:click="loadPreinscription"> Pre-inscribción</button>
+        <button class="btn" v-if="!is_auth" v-on:click="loadPreinscription"> Preinscripción</button>
         <button class="btn" v-if="!is_auth" v-on:click="loadResults">Resultados</button>
         <button class="btn" v-if="!is_auth" v-on:click="loadTeam">Equipos</button>
 
