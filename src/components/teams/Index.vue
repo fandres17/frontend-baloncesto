@@ -33,7 +33,7 @@
                                         <td class="text-center">{{item.ciudad}}</td>
                                         <td class="text-center">{{item.correo_electronico}}</td>
                                         <td class="text-center space-between">
-                                            <a :href="updateTeam" class="space-between"><i class="material-icons">edit</i></a>
+                                            <button v-on:click="updateTeam"><i class="material-icons">edit</i></button>
                                             <a :href="updateTeam" class="space-between"><i class="material-icons">delete</i></a>                                            
                                         </td>
                                     </tr>
@@ -66,7 +66,7 @@ export default{
         this.$router.push({name: 'createteam'})
         },
         updateTeam: function(){
-            this.$router.push({name: updateteam})
+        this.$router.push({name: 'updateteam'})
         }
     },
     created(){
