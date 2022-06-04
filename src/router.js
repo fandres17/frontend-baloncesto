@@ -14,6 +14,7 @@ import Create_team from './components/teams/Create.vue'
 import Update_team from './components/teams/Update.vue'
 import Index_Result from './components/results/Index.vue'
 import Create_Result from './components/results/Create.vue'
+import Index_Pre from './components/preinscription/Index.vue'
 
 
 const routes = [{
@@ -80,6 +81,11 @@ const routes = [{
   path: '/result/create/',
   name: "createresult",
   component: Create_Result
+},
+{
+  path: '/preinscription/index',
+  name:"indexpre",
+  component: Index_Pre
 }
 ];
 

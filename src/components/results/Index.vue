@@ -33,7 +33,8 @@
                                         <td  class="text-center">{{item.marcador_local}}  -  {{item.marcador_visita}}</td>
                                         <td  class="text-center">{{item.equipo_visita}}</td>
                                         <td class="text-center">
-                                            <a href=""><span class="material-icons">mode_edit</span></a>
+                                            <a href="" class="space-between"><span class="material-icons">mode_edit</span></a>
+                                            <a :href="updateTeam" class="space-between"><i class="material-icons">delete</i></a>
                                         </td>
                                     </tr>
                                     </tbody>

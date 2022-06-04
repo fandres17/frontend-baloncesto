@@ -6,6 +6,7 @@
         <button class="btn" v-if="is_auth" v-on:click="loadHome"> Inicio </button>
         <button class="btn" v-if="is_auth" v-on:click="loadResultIndex"> Resultados </button>
         <button class="btn" v-if="is_auth" v-on:click="loadTeamIndex"> Equipos </button>
+        <button class="btn" v-if="is_auth" v-on:click="loadPreIndex"> Preinscritos </button>
         <button class="btn" v-if="is_auth" v-on:click="logOut"> Cerrar Sesión </button>
         <button class="btn" v-if="!is_auth" v-on:click="loadLogIn"> Iniciar Sesión </button>
         <button class="btn" v-if="!is_auth" v-on:click="loadSignUp"> Registrarse </button>
@@ -91,6 +92,9 @@ export default {
   },
   loadTeamIndex: function() {
   this.$router.push ({name:"indexteam"})
+  },
+  loadPreIndex: function() {
+  this.$router.push ({name:"indexpre"})
   }
   },
   created: function () {

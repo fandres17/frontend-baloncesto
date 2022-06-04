@@ -76,6 +76,7 @@ export default {
     margin: 10px;
 }
 .space-between{
+    margin: 0 10px;
     justify-content: space-between;
 }
 </style>

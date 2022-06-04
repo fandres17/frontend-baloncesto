@@ -5,13 +5,12 @@
                 <div class="col-md-12">                    
                     <div class="card">
                         <div class="card-header card-header-secondary">
-                            <h2 class="card-title">ADMINISTRADOR DE EQUIPOS</h2>
-                            <p class="card-category">Equipos registrados</p>
+                            <h2 class="card-title">ADMINISTRADOR DE PREINSCRIPCIONES</h2>
+                            <p class="card-category">Lsitado de equipos</p>
                         </div>
                         <div class="card-body">
                             <div class="row">                                
                                 <div class="col-12 text-right" style="display: flex;justify-content:right;">
-                                    <button class="btn btn-round btn-sm btn-warning " v-on:click="registerTeam">Registrar equipo</button>
                                 </div>
                                 <h2 class="subtitle">
                                     <br/>
@@ -22,19 +21,22 @@
                             <div class="table-responsive">
                                 <table class="table table-striped">
                                     <thead class="text">
-                                        <th class="col-md-3 text-center">Nombre</th>
-                                        <th class="col-md-3 text-center">Ciudad</th>
-                                        <th class="col-md-3 text-center">Correo</th>
-                                        <th class="col-md-3 text-center">Acciones</th>                                        
+                                        <th class="col-md-2 text-center">Equipo</th>
+                                        <th class="col-md-2 text-center">Correo</th>
+                                        <th class="col-md-2 text-center">Ciudad</th>
+                                        <th class="col-md-2 text-center">Encargado</th>
+                                        <th class="col-md-2 text-center">Telefono</th>
+                                        <th class="col-md-2 text-center">Acciones</th>                                        
                                     </thead>
                                     <tbody>
-                                        <tr v-for="(item,index) in resultado" :key="index">
+                                        <tr v-for="(item,index) in preinscription" :key="index">
                                         <td class="text-center">{{item.nombreEquipo}}</td>
-                                        <td class="text-center">{{item.ciudad}}</td>
                                         <td class="text-center">{{item.correo_electronico}}</td>
+                                        <td class="text-center">{{item.ciudad}}</td>
+                                        <td class="text-center">{{item.nombre_encargado}}  {{apellido_encargado}}</td>
+                                        <td class="text-center">{{item.telefono_encargado}}</td>                                                                                
                                         <td class="text-center space-between">
-                                            <a :href="updateTeam" class="space-between"><i class="material-icons">edit</i></a>
-                                            <a :href="updateTeam" class="space-between"><i class="material-icons">delete</i></a>                                            
+                                            <button class="btn btn-success" >Aceptar</button>                                          
                                         </td>
                                     </tr>
                                     </tbody>
@@ -51,27 +53,21 @@
 <script>
 import axios from "axios"
 export default{
-    name: 'indexteam',
-    data (){
+    name:'indexpre',
+    data(){
         return{
-            resultado:[]
+            preinscription: []
         }
     },
-    methods: {
-        async getResultado (){
-            const resp = await axios.get('https://backend-app-baloncesto2.herokuapp.com/teamsread/')
-            this.resultado = resp.data
-        },
-        registerTeam: function(){
-        this.$router.push({name: 'createteam'})
-        },
-        updateTeam: function(){
-            this.$router.push({name: updateteam})
+    methods:{
+        async getPreinscription(){
+            const resp = await axios.get('https://backend-app-baloncesto2.herokuapp.com/preinscriptionRead/')
+            this.preinscription = resp.data
         }
     },
     created(){
-        this.getResultado()
-    },
+        this.getPreinscription()
+    }
 }
 </script>
 <style>
